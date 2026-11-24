@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Radar Afrique — Prospection</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav id="side" aria-label="Navigation principale">
+  <div class="brand"><span class="logo">◉</span><div>Radar Afrique<small>Prospection B2B</small></div></div>
+  <button data-view="dashboard" class="on"><i>▦</i>Tableau de bord</button>
+  <button data-view="carte"><i>🗺</i>Marchés</button>
+  <button data-view="scan"><i>⌖</i>Scan</button>
+  <button data-view="prospects"><i>☰</i>Prospects <span id="count" class="badge">0</span></button>
+  <button data-view="reglages"><i>⚙</i>Réglages</button>
+  <div class="side-foot">Données : estimations à valider.<br>Stockage local (ce navigateur).</div>
+</nav>
+
+<div id="content">
+  <section id="view-dashboard" class="view"><div class="wrap" id="dash"></div></section>
+
+  <section id="view-carte" class="view" hidden>
+    <div class="toolbar">
+      <h1>Marchés <small>potentiel par pays</small></h1>
+      <div class="filters">
+        <label>Offre à pousser
+          <select id="service">
+            <option value="all">Toutes (pondérées)</option>
+            <option value="web">Sites web &amp; e-commerce</option>
+            <option value="cyber">Formation cybersécurité</option>
+            <option value="ia">Agents IA</option>
+            <option value="auto">Automatisation</option>
+          </select>
+        </label>
+        <label>Région
+          <select id="region"><option value="">Toutes</option></select>
+        </label>
+        <label>Langue
+          <select id="lang">
+            <option value="">Toutes</option><option value="fr">Français</option><option value="en">Anglais</option>
+            <option value="ar">Arabe</option><option value="pt">Portugais</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <main>
+      <div id="map-wrap">
+        <div id="map"></div>
+        <div id="legend"></div>
+        <label id="detail-toggle" class="chk"><input type="checkbox" id="detail"> Fond détaillé (rues, villes)</label>
+      </div>
+      <aside>
+        <nav class="tabs">
+          <button data-tab="pays" class="on">Pays</button>
+          <button data-tab="classement">Classement</button>
+        </nav>
+        <section id="tab-pays"></section>
+        <section id="tab-classement" hidden></section>
+      </aside>
+    </main>
+  </section>
+
+  <section id="view-scan" class="view" hidden>
+    <div class="wrap">
+      <div class="vhead"><h1>Scan de commerces</h1><p class="mut">Trouvez des garages, salons, restaurants… dans une ville, puis qualifiez-les avec votre modèle local.</p></div>
+      <div id="tab-scan"></div>
+    </div>
+  </section>
+
+  <section id="view-prospects" class="view" hidden>
+    <div class="wrap">
+      <div class="vhead"><h1>Prospects</h1><p class="mut">Votre base de prospection : suivi des statuts, contacts et messages.</p></div>
+      <div id="tab-prospects"></div>
+    </div>
+  </section>
+
+  <section id="view-reglages" class="view" hidden><div class="wrap" id="settings"></div></section>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script src="africa-geo.js"></script>
+<script src="data.js"></script>
+<script src="cities.js"></script>
+<script src="sitecheck.js"></script>
+<script src="app.js"></script>
+<script src="places.js"></script>
+<script src="scan.js"></script>
+</body>
+</html>
